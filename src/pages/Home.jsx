@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { products } from "../data/products";
 import ProductCard from "../components/ProductCard";
@@ -34,13 +35,79 @@ const chapters = [
 ];
 
 export default function Home() {
+  const heroRef = useRef(null);
+
   const featuredProducts = products
     .filter((product) => product.featured)
     .slice(0, 3);
 
+  useEffect(() => {
+    const elements = document.querySelectorAll("[data-reveal]");
+
+    if (!("IntersectionObserver" in window)) {
+      elements.forEach((element) => {
+        element.classList.add("is-visible");
+      });
+
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -70px 0px",
+      }
+    );
+
+    elements.forEach((element) => {
+      observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+
+  useEffect(() => {
+    const hero = heroRef.current;
+
+    if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return undefined;
+    }
+
+    const handlePointerMove = (event) => {
+      const bounds = hero.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+
+      hero.style.setProperty("--hero-x", `${x * 18}px`);
+      hero.style.setProperty("--hero-y", `${y * 12}px`);
+    };
+
+    const resetParallax = () => {
+      hero.style.setProperty("--hero-x", "0px");
+      hero.style.setProperty("--hero-y", "0px");
+    };
+
+    hero.addEventListener("pointermove", handlePointerMove);
+    hero.addEventListener("pointerleave", resetParallax);
+
+    return () => {
+      hero.removeEventListener("pointermove", handlePointerMove);
+      hero.removeEventListener("pointerleave", resetParallax);
+    };
+  }, []);
+
   return (
     <>
-      <section className="video-hero">
+      <section className="video-hero" ref={heroRef}>
         <video
           className="video-hero__media"
           autoPlay
@@ -58,7 +125,7 @@ export default function Home() {
           Votre navigateur ne prend pas en charge la vidéo.
         </video>
 
-        <div className="video-hero__overlay" />
+        <div className="video-hero__overlay" aria-hidden="true" />
 
         <div className="video-hero__topline">
           <span>Atelier Ø — Paris</span>
@@ -66,7 +133,14 @@ export default function Home() {
         </div>
 
         <div className="video-hero__content">
-          <p className="eyebrow">Chapter 0 — Genesis</p>
+          <div className="video-hero__status">
+            <span className="video-hero__status-dot" aria-hidden="true" />
+            Drop 001 — Available now
+          </div>
+
+          <p className="eyebrow video-hero__eyebrow">
+            Chapter 0 — Genesis
+          </p>
 
           <h1>
             Project
@@ -91,14 +165,24 @@ export default function Home() {
 
         <div className="video-hero__bottom">
           <span>Streetwear engineered for resilience</span>
-          <span>Scroll to enter ↓</span>
+
+          <a className="video-hero__scroll" href="#current-chapter">
+            <span>Scroll to enter</span>
+            <span className="video-hero__scroll-arrow" aria-hidden="true">
+              ↓
+            </span>
+          </a>
         </div>
       </section>
 
       <Marquee />
 
-      <section className="current-chapter">
-        <div className="current-chapter__number">
+      <section
+        id="current-chapter"
+        className="current-chapter"
+        data-reveal
+      >
+        <div className="current-chapter__number" aria-hidden="true">
           <span>00</span>
         </div>
 
@@ -124,7 +208,7 @@ export default function Home() {
       </section>
 
       <section className="chapter-section">
-        <header className="chapter-section__heading">
+        <header className="chapter-section__heading" data-reveal>
           <div>
             <p className="eyebrow">The Zero Mindset</p>
             <h2>Three foundations</h2>
@@ -137,19 +221,25 @@ export default function Home() {
         </header>
 
         <div className="chapter-cards">
-          {chapters.map((chapter) => (
+          {chapters.map((chapter, index) => (
             <Link
               className="chapter-card"
               to={chapter.link}
               key={chapter.id}
+              data-reveal
+              style={{ "--reveal-delay": `${index * 120}ms` }}
             >
               <img
                 className="chapter-card__image"
                 src={chapter.image}
                 alt={chapter.title}
+                loading="lazy"
               />
 
-              <div className="chapter-card__overlay" />
+              <div
+                className="chapter-card__overlay"
+                aria-hidden="true"
+              />
 
               <span className="chapter-card__number">
                 Chapter {chapter.id}
@@ -163,14 +253,16 @@ export default function Home() {
                 <span>{chapter.description}</span>
               </div>
 
-              <span className="chapter-card__arrow">↗</span>
+              <span className="chapter-card__arrow" aria-hidden="true">
+                ↗
+              </span>
             </Link>
           ))}
         </div>
       </section>
 
       <section className="featured-section section-light">
-        <div className="section-heading">
+        <div className="section-heading" data-reveal>
           <div>
             <p className="eyebrow">Drop 001</p>
             <h2>Shop the Genesis drop</h2>
@@ -182,8 +274,14 @@ export default function Home() {
         </div>
 
         <div className="product-grid">
-          {featuredProducts.map((product) => (
-            <ProductCard product={product} key={product.id} />
+          {featuredProducts.map((product, index) => (
+            <div
+              key={product.id}
+              data-reveal
+              style={{ "--reveal-delay": `${index * 120}ms` }}
+            >
+              <ProductCard product={product} />
+            </div>
           ))}
         </div>
       </section>
@@ -193,11 +291,15 @@ export default function Home() {
           className="image-manifesto__media"
           src="/assets/visual-hand-zero.png"
           alt=""
+          loading="lazy"
         />
 
-        <div className="image-manifesto__overlay" />
+        <div
+          className="image-manifesto__overlay"
+          aria-hidden="true"
+        />
 
-        <div className="image-manifesto__content">
+        <div className="image-manifesto__content" data-reveal>
           <p className="eyebrow">Atelier Zéro</p>
 
           <h2>
@@ -216,7 +318,7 @@ export default function Home() {
       </section>
 
       <section className="zero-circle">
-        <div className="zero-circle__heading">
+        <div className="zero-circle__heading" data-reveal>
           <p className="eyebrow">Private access</p>
 
           <h2>
@@ -226,7 +328,7 @@ export default function Home() {
           </h2>
         </div>
 
-        <div className="zero-circle__content">
+        <div className="zero-circle__content" data-reveal>
           <p>
             Accès anticipé aux prochains drops, éditions limitées et contenus
             privés Atelier Zéro.
@@ -245,6 +347,7 @@ export default function Home() {
                 id="newsletter-email"
                 type="email"
                 placeholder="email@exemple.com"
+                autoComplete="email"
                 required
               />
 
