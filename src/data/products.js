@@ -8,7 +8,7 @@ export const products = [
 
     category: "T-shirts",
 
-    price: 25000,
+    price: 20000,
 
     currency: "FCFA",
 
