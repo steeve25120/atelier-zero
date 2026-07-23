@@ -221,8 +221,8 @@ export const products = [
         },
       },
     ],
-  },
-];
+   },
+].sort((a, b) => b.id - a.id);
 
 export const categories = [
   "All",
