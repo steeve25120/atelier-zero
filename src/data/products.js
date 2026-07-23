@@ -65,8 +65,7 @@ export const products = [
 
         colorValue: "#000000",
 
-        image:
-          "/assets/products/made-from-nothing-black/front.jpg",
+        image: "/assets/products/made-from-nothing-black/front.jpg",
 
         gallery: [
           "/assets/products/made-from-nothing-black/front.jpg",
@@ -91,14 +90,126 @@ export const products = [
 
         colorValue: "#ffffff",
 
-        image:
-          "/assets/products/made-from-nothing-white/front.jpg",
+        image: "/assets/products/made-from-nothing-white/front.jpg",
 
         gallery: [
           "/assets/products/made-from-nothing-white/front.jpg",
           "/assets/products/made-from-nothing-white/side.jpg",
           "/assets/products/made-from-nothing-white/back.jpg",
           "/assets/products/made-from-nothing-white/worn.jpeg",
+        ],
+
+        sizes: ["M", "L", "XL"],
+
+        stock: {
+          M: true,
+          L: true,
+          XL: true,
+        },
+      },
+    ],
+  },
+
+  {
+    id: 2,
+
+    slug: "genotype-0",
+
+    name: "GENOTYPE 0",
+
+    category: "T-shirts",
+
+    price: 25000,
+
+    currency: "FCFA",
+
+    chapter: "Chapter 0",
+
+    collection: "Project Genesis",
+
+    badge: "New release",
+
+    featured: true,
+
+    description:
+      "GENOTYPE 0 incarne l’identité brute d’Atelier Zéro. Confectionné en coton premium, il associe une coupe structurée à une esthétique graphique affirmée, pensée pour celles et ceux qui construisent leur propre trajectoire.",
+
+    longDescription:
+      "Pensé comme une évolution du premier chapitre Atelier Zéro, GENOTYPE 0 associe confort, résistance et identité visuelle. Sa construction en coton offre un tombé structuré et agréable au quotidien. Une pièce conçue pour symboliser la transformation, la discipline et la création d’une nouvelle version de soi.",
+
+    details: [
+      "T-shirt streetwear premium",
+      "Impression graphique haute qualité",
+      "Manches courtes",
+      "Col rond",
+      "Coupe unisexe",
+      "Finitions renforcées",
+      "Disponible en noir et en rouge",
+    ],
+
+    composition: [
+      "100 % coton",
+      "Matière douce, respirante et résistante",
+    ],
+
+    care: [
+      "Lavage en machine à 30 °C maximum",
+      "Laver le vêtement à l’envers",
+      "Laver avec des couleurs similaires",
+      "Ne pas utiliser d’eau de Javel",
+      "Ne pas sécher au sèche-linge",
+      "Repasser à basse température et à l’envers",
+      "Ne pas repasser directement sur les impressions",
+    ],
+
+    fit: [
+      "Coupe streetwear unisexe",
+      "Prendre votre taille habituelle pour un porté classique",
+      "Prendre une taille au-dessus pour un effet plus oversize",
+    ],
+
+    variants: [
+      {
+        id: "black",
+
+        color: "Noir",
+
+        colorValue: "#000000",
+
+        image: "/assets/products/genotype-0-black/front.jpg",
+
+        gallery: [
+          "/assets/products/genotype-0-black/front.jpg",
+          "/assets/products/genotype-0-black/side.jpg",
+          "/assets/products/genotype-0-black/back.jpg",
+          "/assets/products/genotype-0-black/worn.jpeg",
+          "/assets/products/genotype-0-black/worn2.jpeg",
+        ],
+
+        sizes: ["M", "L", "XL"],
+
+        stock: {
+          M: true,
+          L: true,
+          XL: true,
+        },
+      },
+
+      {
+        id: "red",
+
+        color: "Rouge",
+
+        colorValue: "#b40018",
+
+        image: "/assets/products/genotype-0-red/front.jpg",
+
+        gallery: [
+          "/assets/products/genotype-0-red/front.jpg",
+          "/assets/products/genotype-0-red/side.jpg",
+          "/assets/products/genotype-0-red/back.jpg",
+          "/assets/products/genotype-0-red/worn.jpeg",
+          "/assets/products/genotype-0-red/worn2.jpeg",
         ],
 
         sizes: ["M", "L", "XL"],

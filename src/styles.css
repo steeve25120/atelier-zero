@@ -2440,3 +2440,12 @@ header.header button {
     animation: none;
   }
 }
+/* Images produits en couleur */
+
+.product-image-wrap img,
+.product-image-wrap:hover img,
+.product-gallery-main img,
+.product-thumbnails img,
+.cart-item img {
+  filter: none !important;
+}
