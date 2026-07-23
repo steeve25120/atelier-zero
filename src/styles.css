@@ -2449,3 +2449,78 @@ header.header button {
 .cart-item img {
   filter: none !important;
 }
+
+/* =========================================================
+   SOLD OUT
+   ========================================================= */
+
+.product-sold-out {
+  position: absolute;
+  z-index: 5;
+  top: 18px;
+  right: 18px;
+  padding: 9px 12px;
+  color: #ffffff;
+  background: #000000;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.product-card--sold-out .product-image-wrap img {
+  opacity: 0.68;
+}
+
+.product-card--sold-out .product-view {
+  display: none;
+}
+
+.product-gallery-main {
+  position: relative;
+}
+
+.product-page-sold-out {
+  position: absolute;
+  z-index: 5;
+  top: 22px;
+  right: 22px;
+  padding: 11px 15px;
+  color: #ffffff;
+  background: #000000;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.product-sold-out-message {
+  display: inline-flex;
+  margin: 22px 0 0;
+  padding: 10px 13px;
+  color: #ffffff;
+  background: #000000;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.product-info .primary-button:disabled {
+  color: #ffffff;
+  background: #777777;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+@media (max-width: 620px) {
+  .product-sold-out {
+    top: 12px;
+    right: 12px;
+  }
+
+  .product-page-sold-out {
+    top: 14px;
+    right: 14px;
+  }
+}

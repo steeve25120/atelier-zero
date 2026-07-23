@@ -3,55 +3,48 @@ import { Link } from "react-router-dom";
 import { formatPrice } from "../utils/formatPrice";
 
 export default function ProductCard({ product }) {
-  const firstVariant = product?.variants?.[0] ?? null;
-
-  const [selectedVariantId, setSelectedVariantId] = useState(
-    firstVariant?.id ?? ""
-  );
+  const [selectedVariantId, setSelectedVariantId] =
+    useState(product.variants[0].id);
 
   const selectedVariant =
-    product?.variants?.find(
+    product.variants.find(
       (variant) => variant.id === selectedVariantId
-    ) ?? firstVariant;
-
-  if (!product || !selectedVariant) {
-    return null;
-  }
-
-  const handleVariantChange = (event, variantId) => {
-    event.preventDefault();
-    event.stopPropagation();
-
-    setSelectedVariantId(variantId);
-  };
+    ) || product.variants[0];
 
   return (
-    <article className="product-card">
+    <article
+      className={`product-card ${
+        product.soldOut ? "product-card--sold-out" : ""
+      }`}
+    >
       <Link
-        to={`/product/${product.slug}`}
         className="product-image-wrap"
+        to={`/product/${product.slug}`}
       >
         <img
-          key={selectedVariant.id}
           src={selectedVariant.image}
           alt={`${product.name} - ${selectedVariant.color}`}
           loading="lazy"
         />
 
         <span className="product-chapter">
-          {product.badge || product.chapter}
+          {product.chapter}
         </span>
 
+        {product.soldOut && (
+          <span className="product-sold-out">
+            Sold out
+          </span>
+        )}
+
         <span className="product-view">
-          Voir
+          Voir le produit
         </span>
       </Link>
 
       <div className="product-meta">
         <div className="product-meta__main">
-          <p>
-            {product.collection || product.category}
-          </p>
+          <p>{product.collection}</p>
 
           <h3>
             <Link to={`/product/${product.slug}`}>
@@ -69,14 +62,10 @@ export default function ProductCard({ product }) {
                     ? "active"
                     : ""
                 }
-                onClick={(event) =>
-                  handleVariantChange(
-                    event,
-                    variant.id
-                  )
+                onClick={() =>
+                  setSelectedVariantId(variant.id)
                 }
-                aria-label={`Afficher ${variant.color}`}
-                title={variant.color}
+                aria-label={`Afficher la couleur ${variant.color}`}
               >
                 <span
                   style={{

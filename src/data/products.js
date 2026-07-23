@@ -20,6 +20,8 @@ export const products = [
 
     featured: true,
 
+    soldOut: true,
+
     description:
       "Le T-shirt Made From Nothing incarne le point de départ de la Mentalité Zéro. Une pièce streetwear à l’esthétique minimaliste sur le devant, marquée par le symbole Atelier Zéro sur la poitrine et une composition graphique forte au dos.",
 
@@ -65,7 +67,8 @@ export const products = [
 
         colorValue: "#000000",
 
-        image: "/assets/products/made-from-nothing-black/front.jpg",
+        image:
+          "/assets/products/made-from-nothing-black/front.jpg",
 
         gallery: [
           "/assets/products/made-from-nothing-black/front.jpg",
@@ -90,7 +93,8 @@ export const products = [
 
         colorValue: "#ffffff",
 
-        image: "/assets/products/made-from-nothing-white/front.jpg",
+        image:
+          "/assets/products/made-from-nothing-white/front.jpg",
 
         gallery: [
           "/assets/products/made-from-nothing-white/front.jpg",
@@ -130,6 +134,8 @@ export const products = [
     badge: "New release",
 
     featured: true,
+
+    soldOut: false,
 
     description:
       "GENOTYPE 0 incarne l’identité brute d’Atelier Zéro. Confectionné en coton premium, il associe une coupe structurée à une esthétique graphique affirmée, pensée pour celles et ceux qui construisent leur propre trajectoire.",
@@ -176,7 +182,8 @@ export const products = [
 
         colorValue: "#000000",
 
-        image: "/assets/products/genotype-0-black/front.jpg",
+        image:
+          "/assets/products/genotype-0-black/front.jpg",
 
         gallery: [
           "/assets/products/genotype-0-black/front.jpg",
@@ -202,7 +209,8 @@ export const products = [
 
         colorValue: "#b40018",
 
-        image: "/assets/products/genotype-0-red/front.jpg",
+        image:
+          "/assets/products/genotype-0-red/front.jpg",
 
         gallery: [
           "/assets/products/genotype-0-red/front.jpg",
@@ -221,7 +229,7 @@ export const products = [
         },
       },
     ],
-   },
+  },
 ].sort((a, b) => b.id - a.id);
 
 export const categories = [
