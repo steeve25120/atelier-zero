@@ -230,6 +230,234 @@ export const products = [
       },
     ],
   },
+
+  {
+    id: 3,
+
+    slug: "zero-fitted-shirt",
+
+    name: "Zero Fitted Shirt",
+
+    category: "T-shirts",
+
+    price: 12000,
+
+    currency: "FCFA",
+
+    chapter: "Chapter 0",
+
+    collection: "Project Genesis",
+
+    badge: "New release",
+
+    featured: true,
+
+    soldOut: false,
+
+    description:
+      "Le Zero Fitted Shirt revisite l’essentiel Atelier Zéro avec une coupe ajustée et une identité minimaliste. Confectionné en coton doux, il est marqué par une broderie Atelier Zéro sur le devant.",
+
+    longDescription:
+      "Pensé pour offrir une silhouette plus près du corps, le Zero Fitted Shirt associe confort, simplicité et précision. Sa construction en coton et sa broderie Atelier Zéro en font une pièce polyvalente, facile à porter seule ou sous une veste.",
+
+    details: [
+      "T-shirt ajusté en coton",
+      "Inscription Atelier Zéro brodée sur le devant",
+      "Col rond",
+      "Manches courtes",
+      "Coupe près du corps",
+      "Finitions soignées",
+      "Disponible en noir et en blanc",
+    ],
+
+    composition: [
+      "100 % coton",
+      "Matière douce et respirante",
+    ],
+
+    care: [
+      "Lavage en machine à 30 °C maximum",
+      "Laver le vêtement à l’envers",
+      "Laver avec des couleurs similaires",
+      "Ne pas utiliser d’eau de Javel",
+      "Ne pas sécher au sèche-linge",
+      "Repasser à basse température et à l’envers",
+      "Ne pas repasser directement sur la broderie",
+    ],
+
+    fit: [
+      "Coupe ajustée",
+      "Prendre votre taille habituelle pour un effet près du corps",
+      "Prendre une taille au-dessus pour un porté plus ample",
+    ],
+
+    variants: [
+      {
+        id: "black",
+
+        color: "Noir",
+
+        colorValue: "#000000",
+
+        image:
+          "/assets/products/zero-fitted-shirt-black/front.jpg",
+
+        gallery: [
+          "/assets/products/zero-fitted-shirt-black/front.jpg",
+          "/assets/products/zero-fitted-shirt-black/back.jpg",
+          "/assets/products/zero-fitted-shirt-black/worn.jpeg",
+          "/assets/products/zero-fitted-shirt-black/worn2.jpeg",
+        ],
+
+        sizes: ["M", "L", "XL"],
+
+        stock: {
+          M: true,
+          L: true,
+          XL: true,
+        },
+      },
+
+      {
+        id: "white",
+
+        color: "Blanc",
+
+        colorValue: "#ffffff",
+
+        image:
+          "/assets/products/zero-fitted-shirt-white/front.jpg",
+
+        gallery: [
+          "/assets/products/zero-fitted-shirt-white/front.jpg",
+          "/assets/products/zero-fitted-shirt-white/back.jpg",
+          "/assets/products/zero-fitted-shirt-white/worn.jpeg",
+          "/assets/products/zero-fitted-shirt-white/worn2.jpeg",
+        ],
+
+        sizes: ["M", "L", "XL"],
+
+        stock: {
+          M: true,
+          L: true,
+          XL: true,
+        },
+      },
+    ],
+  },
+
+  {
+    id: 4,
+
+    slug: "tank-atelier-zero",
+
+    name: "Tank Atelier Zéro",
+
+    category: "Tank tops",
+
+    price: 12000,
+
+    currency: "FCFA",
+
+    chapter: "Chapter 0",
+
+    collection: "Project Genesis",
+
+    badge: "New release",
+
+    featured: true,
+
+    soldOut: false,
+
+    description:
+      "Le Tank Atelier Zéro propose une silhouette légère et structurée, conçue pour les journées chaudes et les superpositions. Réalisé en coton, il présente le logo Atelier Zéro brodé sur le devant.",
+
+    longDescription:
+      "Minimaliste et fonctionnel, le Tank Atelier Zéro associe une coupe sans manches à une matière en coton confortable. La broderie placée sur le devant apporte une signature discrète, fidèle à l’esthétique brute de la marque.",
+
+    details: [
+      "Débardeur en coton",
+      "Logo Atelier Zéro brodé sur le devant",
+      "Coupe sans manches",
+      "Col rond",
+      "Coupe unisexe",
+      "Finitions soignées",
+      "Disponible en noir et en blanc",
+    ],
+
+    composition: [
+      "100 % coton",
+      "Matière douce et respirante",
+    ],
+
+    care: [
+      "Lavage en machine à 30 °C maximum",
+      "Laver le vêtement à l’envers",
+      "Laver avec des couleurs similaires",
+      "Ne pas utiliser d’eau de Javel",
+      "Ne pas sécher au sèche-linge",
+      "Repasser à basse température et à l’envers",
+      "Ne pas repasser directement sur la broderie",
+    ],
+
+    fit: [
+      "Coupe droite sans manches",
+      "Prendre votre taille habituelle pour un porté classique",
+      "Prendre une taille au-dessus pour un effet plus ample",
+    ],
+
+    variants: [
+      {
+        id: "black",
+
+        color: "Noir",
+
+        colorValue: "#000000",
+
+        image:
+          "/assets/products/Tank-Atelier-zero-black/front.jpg",
+
+        gallery: [
+          "/assets/products/Tank-Atelier-zero-black/front.jpg",
+          "/assets/products/Tank-Atelier-zero-black/back.jpg",
+          "/assets/products/Tank-Atelier-zero-black/worn.jpeg",
+        ],
+
+        sizes: ["M", "L", "XL"],
+
+        stock: {
+          M: true,
+          L: true,
+          XL: true,
+        },
+      },
+
+      {
+        id: "white",
+
+        color: "Blanc",
+
+        colorValue: "#ffffff",
+
+        image:
+          "/assets/products/Tank-Atelier-zero-white/front.jpg",
+
+        gallery: [
+          "/assets/products/Tank-Atelier-zero-white/front.jpg",
+          "/assets/products/Tank-Atelier-zero-white/back.jpg",
+          "/assets/products/Tank-Atelier-zero-white/worn.jpg",
+        ],
+
+        sizes: ["M", "L", "XL"],
+
+        stock: {
+          M: true,
+          L: true,
+          XL: true,
+        },
+      },
+    ],
+  },
 ].sort((a, b) => b.id - a.id);
 
 export const categories = [
