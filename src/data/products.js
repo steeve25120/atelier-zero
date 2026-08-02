@@ -458,6 +458,124 @@ export const products = [
       },
     ],
   },
+
+  {
+    id: 5,
+
+    slug: "double-layer-az-shirt",
+
+    name: "Double Layer AZ Shirt",
+
+    category: "T-shirts",
+
+    price: 30000,
+
+    currency: "FCFA",
+
+    chapter: "Chapter 0",
+
+    collection: "Project Genesis",
+
+    badge: "New release",
+
+    featured: true,
+
+    soldOut: false,
+
+    description:
+      "Le Double Layer AZ Shirt est une pièce signature d’Atelier Zéro. Sa construction à double manche crée une silhouette singulière, entre t-shirt structuré et superposition streetwear.",
+
+    longDescription:
+      "Conçu comme une interprétation plus expérimentale du t-shirt classique, le Double Layer AZ Shirt se distingue par ses manches superposées et son volume travaillé. Sa construction en coton offre confort et tenue, tandis que ses détails renforcent l’identité brute et minimaliste d’Atelier Zéro.",
+
+    details: [
+      "T-shirt streetwear premium",
+      "Construction à double manche",
+      "Effet de superposition intégré",
+      "Manches courtes superposées",
+      "Col rond",
+      "Coupe unisexe",
+      "Silhouette structurée",
+      "Disponible en noir et en blanc",
+    ],
+
+    composition: [
+      "100 % coton",
+      "Matière douce, respirante et résistante",
+    ],
+
+    care: [
+      "Lavage en machine à 30 °C maximum",
+      "Laver le vêtement à l’envers",
+      "Laver avec des couleurs similaires",
+      "Ne pas utiliser d’eau de Javel",
+      "Ne pas sécher au sèche-linge",
+      "Repasser à basse température et à l’envers",
+      "Ne pas repasser directement sur les impressions",
+    ],
+
+    fit: [
+      "Coupe streetwear unisexe",
+      "Prendre votre taille habituelle pour un porté classique",
+      "Prendre une taille au-dessus pour un effet plus oversize",
+    ],
+
+    variants: [
+      {
+        id: "black",
+
+        color: "Noir",
+
+        colorValue: "#000000",
+
+        image:
+          "/assets/products/double-layer-az-shirt-black/front.jpg",
+
+        gallery: [
+          "/assets/products/double-layer-az-shirt-black/front.jpg",
+          "/assets/products/double-layer-az-shirt-black/side.jpg",
+          "/assets/products/double-layer-az-shirt-black/back.jpg",
+          "/assets/products/double-layer-az-shirt-black/worn.jpeg",
+          "/assets/products/double-layer-az-shirt-black/worn2.jpeg",
+        ],
+
+        sizes: ["M", "L", "XL"],
+
+        stock: {
+          M: true,
+          L: true,
+          XL: true,
+        },
+      },
+
+      {
+        id: "white",
+
+        color: "Blanc",
+
+        colorValue: "#ffffff",
+
+        image:
+          "/assets/products/double-layer-az-shirt-blanc/front.jpg",
+
+        gallery: [
+          "/assets/products/double-layer-az-shirt-blanc/front.jpg",
+          "/assets/products/double-layer-az-shirt-blanc/side.jpg",
+          "/assets/products/double-layer-az-shirt-blanc/back.jpg",
+          "/assets/products/double-layer-az-shirt-blanc/worn.jpeg",
+          "/assets/products/double-layer-az-shirt-blanc/worn2.jpeg",
+        ],
+
+        sizes: ["M", "L", "XL"],
+
+        stock: {
+          M: true,
+          L: true,
+          XL: true,
+        },
+      },
+    ],
+  },
 ].sort((a, b) => b.id - a.id);
 
 export const categories = [
