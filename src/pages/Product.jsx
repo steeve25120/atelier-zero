@@ -219,7 +219,7 @@ export default function Product() {
 
           <div className="variant-selector">
             <div className="selection-heading">
-              <span>Couleur</span>
+              <span>Choisir une couleur</span>
 
               <strong>
                 {selectedVariant.color}
@@ -228,35 +228,55 @@ export default function Product() {
 
             <div className="variant-options">
               {product.variants.map(
-                (variant) => (
-                  <button
-                    type="button"
-                    key={variant.id}
-                    className={
-                      selectedVariant.id ===
-                      variant.id
-                        ? "active"
-                        : ""
-                    }
-                    onClick={() =>
-                      handleVariantChange(
-                        variant.id
-                      )
-                    }
-                  >
-                    <span
-                      className="variant-color-swatch"
-                      style={{
-                        backgroundColor:
-                          variant.colorValue,
-                      }}
-                    />
+                (variant) => {
+                  const isSelected =
+                    selectedVariant.id ===
+                    variant.id;
 
-                    <span>
-                      {variant.color}
-                    </span>
-                  </button>
-                )
+                  return (
+                    <button
+                      type="button"
+                      key={variant.id}
+                      className={[
+                        "variant-button",
+                        isSelected
+                          ? "active"
+                          : "",
+                      ]
+                        .filter(Boolean)
+                        .join(" ")}
+                      onClick={() =>
+                        handleVariantChange(
+                          variant.id
+                        )
+                      }
+                      aria-label={`Choisir la couleur ${variant.color}`}
+                      aria-pressed={isSelected}
+                    >
+                      <span
+                        className="variant-color-swatch"
+                        style={{
+                          backgroundColor:
+                            variant.colorValue,
+                        }}
+                        aria-hidden="true"
+                      />
+
+                      <span className="variant-button__label">
+                        {variant.color}
+                      </span>
+
+                      {isSelected && (
+                        <span
+                          className="variant-button__check"
+                          aria-hidden="true"
+                        >
+                          ✓
+                        </span>
+                      )}
+                    </button>
+                  );
+                }
               )}
             </div>
           </div>
