@@ -12,6 +12,24 @@ import { useCart } from "../context/CartContext";
 import { formatPrice } from "../utils/formatPrice";
 import ProductCard from "../components/ProductCard";
 
+function getStockQuantity(variant, size) {
+  return Number(variant?.stock?.[size] ?? 0);
+}
+
+function getFirstAvailableSize(variant) {
+  return (
+    variant?.sizes?.find(
+      (size) => getStockQuantity(variant, size) > 0
+    ) || ""
+  );
+}
+
+function isVariantSoldOut(variant) {
+  return variant.sizes.every(
+    (size) => getStockQuantity(variant, size) <= 0
+  );
+}
+
 export default function Product() {
   const { slug } = useParams();
 
@@ -58,7 +76,9 @@ export default function Product() {
 
     setSelectedVariantId(firstVariant.id);
     setSelectedImageIndex(0);
-    setSelectedSize(firstVariant.sizes[0]);
+    setSelectedSize(
+      getFirstAvailableSize(firstVariant)
+    );
   }, [product]);
 
   const relatedProducts = useMemo(() => {
@@ -93,18 +113,29 @@ export default function Product() {
   }
 
   const isSoldOut =
-    product.soldOut === true;
+    product.soldOut === true ||
+    product.variants.every(
+      (variant) => isVariantSoldOut(variant)
+    );
+
+  const selectedVariantIsSoldOut =
+    isVariantSoldOut(selectedVariant);
 
   const selectedImage =
     selectedVariant.gallery[
       selectedImageIndex
     ] || selectedVariant.gallery[0];
 
+  const selectedSizeStock =
+    getStockQuantity(
+      selectedVariant,
+      selectedSize
+    );
+
   const selectedSizeAvailable =
     !isSoldOut &&
-    selectedVariant.stock?.[
-      selectedSize
-    ] !== false;
+    selectedSize !== "" &&
+    selectedSizeStock > 0;
 
   const handleVariantChange = (
     variantId
@@ -121,7 +152,9 @@ export default function Product() {
 
     setSelectedVariantId(newVariant.id);
     setSelectedImageIndex(0);
-    setSelectedSize(newVariant.sizes[0]);
+    setSelectedSize(
+      getFirstAvailableSize(newVariant)
+    );
   };
 
   const handleAddToCart = () => {
@@ -233,6 +266,9 @@ export default function Product() {
                     selectedVariant.id ===
                     variant.id;
 
+                  const variantSoldOut =
+                    isVariantSoldOut(variant);
+
                   return (
                     <button
                       type="button"
@@ -241,6 +277,9 @@ export default function Product() {
                         "variant-button",
                         isSelected
                           ? "active"
+                          : "",
+                        variantSoldOut
+                          ? "variant-button--sold-out"
                           : "",
                       ]
                         .filter(Boolean)
@@ -266,13 +305,19 @@ export default function Product() {
                         {variant.color}
                       </span>
 
-                      {isSelected && (
-                        <span
-                          className="variant-button__check"
-                          aria-hidden="true"
-                        >
-                          ✓
+                      {variantSoldOut ? (
+                        <span className="variant-button__status">
+                          Sold out
                         </span>
+                      ) : (
+                        isSelected && (
+                          <span
+                            className="variant-button__check"
+                            aria-hidden="true"
+                          >
+                            ✓
+                          </span>
+                        )
                       )}
                     </button>
                   );
@@ -295,11 +340,15 @@ export default function Product() {
             <div className="size-grid">
               {selectedVariant.sizes.map(
                 (size) => {
+                  const stockQuantity =
+                    getStockQuantity(
+                      selectedVariant,
+                      size
+                    );
+
                   const available =
                     !isSoldOut &&
-                    selectedVariant.stock?.[
-                      size
-                    ] !== false;
+                    stockQuantity > 0;
 
                   return (
                     <button
@@ -321,8 +370,21 @@ export default function Product() {
                           setSelectedSize(size);
                         }
                       }}
+                      aria-label={
+                        available
+                          ? `Choisir la taille ${size}`
+                          : `Taille ${size} sold out`
+                      }
                     >
-                      {size}
+                      <span className="size-label">
+                        {size}
+                      </span>
+
+                      {!available && (
+                        <span className="size-status">
+                          Sold out
+                        </span>
+                      )}
                     </button>
                   );
                 }
@@ -341,9 +403,11 @@ export default function Product() {
           >
             {isSoldOut
               ? "Sold out"
-              : selectedSizeAvailable
-                ? "Ajouter au panier"
-                : "Taille indisponible"}
+              : selectedVariantIsSoldOut
+                ? `${selectedVariant.color} sold out`
+                : selectedSizeAvailable
+                  ? "Ajouter au panier"
+                  : "Choisir une taille"}
           </button>
 
           <div className="product-accordions">

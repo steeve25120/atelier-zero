@@ -2604,3 +2604,52 @@ header.header button {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   STOCKS ET TAILLES SOLD OUT
+   ========================================================= */
+
+.size-grid button {
+  min-height: 58px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.size-grid button.unavailable,
+.size-grid button:disabled {
+  color: #8a8a8a;
+  background: #e7e6e2;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.size-grid button.unavailable::after {
+  display: none;
+}
+
+.size-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.size-status {
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.variant-button--sold-out {
+  opacity: 0.55;
+}
+
+.variant-button__status {
+  margin-left: auto;
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

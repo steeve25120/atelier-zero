@@ -80,9 +80,9 @@ export const products = [
         sizes: ["M", "L", "XL"],
 
         stock: {
-          M: true,
-          L: true,
-          XL: true,
+          M: 0,
+          L: 0,
+          XL: 0,
         },
       },
 
@@ -106,9 +106,9 @@ export const products = [
         sizes: ["M", "L", "XL"],
 
         stock: {
-          M: true,
-          L: true,
-          XL: true,
+          M: 0,
+          L: 0,
+          XL: 0,
         },
       },
     ],
@@ -196,9 +196,9 @@ export const products = [
         sizes: ["M", "L", "XL"],
 
         stock: {
-          M: true,
-          L: true,
-          XL: true,
+          M: 2,
+          L: 2,
+          XL: 0,
         },
       },
 
@@ -223,9 +223,9 @@ export const products = [
         sizes: ["M", "L", "XL"],
 
         stock: {
-          M: true,
-          L: true,
-          XL: true,
+          M: 0,
+          L: 1,
+          XL: 0,
         },
       },
     ],
@@ -309,12 +309,13 @@ export const products = [
           "/assets/products/zero-fitted-shirt-black/worn2.jpeg",
         ],
 
-        sizes: ["M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL"],
 
         stock: {
-          M: true,
-          L: true,
-          XL: true,
+          S: 2,
+          M: 0,
+          L: 1,
+          XL: 0,
         },
       },
 
@@ -335,12 +336,13 @@ export const products = [
           "/assets/products/zero-fitted-shirt-white/worn2.jpeg",
         ],
 
-        sizes: ["M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL"],
 
         stock: {
-          M: true,
-          L: true,
-          XL: true,
+          S: 0,
+          M: 1,
+          L: 0,
+          XL: 1,
         },
       },
     ],
@@ -423,12 +425,13 @@ export const products = [
           "/assets/products/Tank-Atelier-zero-black/worn.jpeg",
         ],
 
-        sizes: ["M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL"],
 
         stock: {
-          M: true,
-          L: true,
-          XL: true,
+          S: 0,
+          M: 2,
+          L: 2,
+          XL: 0,
         },
       },
 
@@ -448,12 +451,14 @@ export const products = [
           "/assets/products/Tank-Atelier-zero-white/worn.jpg",
         ],
 
-        sizes: ["M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL"],
 
         stock: {
-          M: true,
-          L: true,
-          XL: true,
+          S: 0,
+          M: 0,
+          L: 2,
+          XL: 2,
+          XXL: 1,
         },
       },
     ],
@@ -539,12 +544,14 @@ export const products = [
           "/assets/products/double-layer-az-shirt-black/worn2.jpeg",
         ],
 
-        sizes: ["M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL"],
 
         stock: {
-          M: true,
-          L: true,
-          XL: true,
+          S: 0,
+          M: 1,
+          L: 0,
+          XL: 3,
+          XXL: 1,
         },
       },
 
@@ -566,12 +573,14 @@ export const products = [
           "/assets/products/double-layer-az-shirt-blanc/worn2.jpeg",
         ],
 
-        sizes: ["M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL"],
 
         stock: {
-          M: true,
-          L: true,
-          XL: true,
+          S: 0,
+          M: 2,
+          L: 0,
+          XL: 1,
+          XXL: 2,
         },
       },
     ],
