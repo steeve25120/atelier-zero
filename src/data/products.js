@@ -429,8 +429,8 @@ export const products = [
 
         stock: {
           S: 0,
-          M: 2,
-          L: 2,
+          M: 0,
+          L: 0,
           XL: 0,
         },
       },
