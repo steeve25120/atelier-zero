@@ -4208,12 +4208,12 @@ header.header button,
   }
 }
 /* =========================================================
-   LOGO HEADER — TAILLE AJUSTÉE
+   LOGO HEADER — PLUS GRAND
    ========================================================= */
 
 .header .brand {
-  width: 150px;
-  height: 54px;
+  width: 180px;
+  height: 64px;
 
   display: flex;
   align-items: center;
@@ -4228,7 +4228,7 @@ header.header button,
   object-fit: contain;
   object-position: center;
 
-  transform: translateY(-3px);
+  transform: translateY(-2px) scale(1.65);
 
   filter: brightness(0);
   mix-blend-mode: normal;
@@ -4236,11 +4236,21 @@ header.header button,
 
 @media (max-width: 960px) {
   .header .brand {
-    width: 130px;
-    height: 48px;
+    width: 155px;
+    height: 58px;
   }
 
   .header .brand img {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.4);
+  }
+}
+
+@media (max-width: 620px) {
+  .header {
+    padding-left: 0;
+  }
+
+  .header .brand {
+    margin-left: -8px;
   }
 }
