@@ -12,21 +12,38 @@ import { useCart } from "../context/CartContext";
 import { formatPrice } from "../utils/formatPrice";
 import ProductCard from "../components/ProductCard";
 
-function getStockQuantity(variant, size) {
-  return Number(variant?.stock?.[size] ?? 0);
+function getStockQuantity(
+  variant,
+  size
+) {
+  return Number(
+    variant?.stock?.[size] ?? 0
+  );
 }
 
-function getFirstAvailableSize(variant) {
+function getFirstAvailableSize(
+  variant
+) {
   return (
     variant?.sizes?.find(
-      (size) => getStockQuantity(variant, size) > 0
+      (size) =>
+        getStockQuantity(
+          variant,
+          size
+        ) > 0
     ) || ""
   );
 }
 
-function isVariantSoldOut(variant) {
+function isVariantSoldOut(
+  variant
+) {
   return variant.sizes.every(
-    (size) => getStockQuantity(variant, size) <= 0
+    (size) =>
+      getStockQuantity(
+        variant,
+        size
+      ) <= 0
   );
 }
 
@@ -34,10 +51,12 @@ export default function Product() {
   const { slug } = useParams();
 
   const product = products.find(
-    (item) => item.slug === slug
+    (item) =>
+      item.slug === slug
   );
 
-  const { addToCart } = useCart();
+  const { addToCart } =
+    useCart();
 
   const [
     selectedVariantId,
@@ -54,53 +73,74 @@ export default function Product() {
     setSelectedSize,
   ] = useState("");
 
-  const selectedVariant = useMemo(() => {
-    if (!product) {
-      return null;
-    }
+  const selectedVariant =
+    useMemo(() => {
+      if (!product) {
+        return null;
+      }
 
-    return (
-      product.variants.find(
-        (variant) =>
-          variant.id === selectedVariantId
-      ) || product.variants[0]
-    );
-  }, [product, selectedVariantId]);
+      return (
+        product.variants.find(
+          (variant) =>
+            variant.id ===
+            selectedVariantId
+        ) ||
+        product.variants[0]
+      );
+    }, [
+      product,
+      selectedVariantId,
+    ]);
 
   useEffect(() => {
     if (!product) {
       return;
     }
 
-    const firstVariant = product.variants[0];
+    const firstVariant =
+      product.variants[0];
 
-    setSelectedVariantId(firstVariant.id);
+    setSelectedVariantId(
+      firstVariant.id
+    );
+
     setSelectedImageIndex(0);
+
     setSelectedSize(
-      getFirstAvailableSize(firstVariant)
+      getFirstAvailableSize(
+        firstVariant
+      )
     );
   }, [product]);
 
-  const relatedProducts = useMemo(() => {
-    if (!product) {
-      return [];
-    }
+  const relatedProducts =
+    useMemo(() => {
+      if (!product) {
+        return [];
+      }
 
-    return products
-      .filter(
-        (item) => item.id !== product.id
-      )
-      .slice(0, 3);
-  }, [product]);
+      return products
+        .filter(
+          (item) =>
+            item.id !==
+            product.id
+        )
+        .slice(0, 3);
+    }, [product]);
 
-  if (!product || !selectedVariant) {
+  if (
+    !product ||
+    !selectedVariant
+  ) {
     return (
       <section className="page-shell not-found">
         <p className="eyebrow">
           Produit introuvable
         </p>
 
-        <h1>Retour à zéro.</h1>
+        <h1>
+          Retour à zéro.
+        </h1>
 
         <Link
           className="primary-button"
@@ -115,16 +155,22 @@ export default function Product() {
   const isSoldOut =
     product.soldOut === true ||
     product.variants.every(
-      (variant) => isVariantSoldOut(variant)
+      (variant) =>
+        isVariantSoldOut(
+          variant
+        )
     );
 
   const selectedVariantIsSoldOut =
-    isVariantSoldOut(selectedVariant);
+    isVariantSoldOut(
+      selectedVariant
+    );
 
   const selectedImage =
     selectedVariant.gallery[
       selectedImageIndex
-    ] || selectedVariant.gallery[0];
+    ] ||
+    selectedVariant.gallery[0];
 
   const selectedSizeStock =
     getStockQuantity(
@@ -143,17 +189,24 @@ export default function Product() {
     const newVariant =
       product.variants.find(
         (variant) =>
-          variant.id === variantId
+          variant.id ===
+          variantId
       );
 
     if (!newVariant) {
       return;
     }
 
-    setSelectedVariantId(newVariant.id);
+    setSelectedVariantId(
+      newVariant.id
+    );
+
     setSelectedImageIndex(0);
+
     setSelectedSize(
-      getFirstAvailableSize(newVariant)
+      getFirstAvailableSize(
+        newVariant
+      )
     );
   };
 
@@ -178,7 +231,9 @@ export default function Product() {
       <section className="product-page page-shell">
         <div
           className="product-gallery"
-          key={selectedVariant.id}
+          key={
+            selectedVariant.id
+          }
         >
           <div className="product-gallery-main">
             <img
@@ -196,17 +251,23 @@ export default function Product() {
 
           <div className="product-thumbnails">
             {selectedVariant.gallery.map(
-              (image, index) => (
+              (
+                image,
+                index
+              ) => (
                 <button
                   type="button"
                   key={`${selectedVariant.id}-${image}`}
                   className={
-                    selectedImageIndex === index
+                    selectedImageIndex ===
+                    index
                       ? "active"
                       : ""
                   }
                   onClick={() =>
-                    setSelectedImageIndex(index)
+                    setSelectedImageIndex(
+                      index
+                    )
                   }
                   aria-label={`Afficher l’image ${
                     index + 1
@@ -230,19 +291,23 @@ export default function Product() {
             {product.category}
           </p>
 
-          <h1>{product.name}</h1>
+          <h1>
+            {product.name}
+          </h1>
 
           {isSoldOut && (
             <p className="product-sold-out-message">
-              Ce produit est actuellement
-              épuisé.
+              Ce produit est
+              actuellement épuisé.
             </p>
           )}
 
           <p className="product-price">
             {formatPrice(
               product.price,
-              product.currency
+              product.currency,
+              product.euroAdjustment ||
+                0
             )}
           </p>
 
@@ -252,10 +317,14 @@ export default function Product() {
 
           <div className="variant-selector">
             <div className="selection-heading">
-              <span>Choisir une couleur</span>
+              <span>
+                Choisir une couleur
+              </span>
 
               <strong>
-                {selectedVariant.color}
+                {
+                  selectedVariant.color
+                }
               </strong>
             </div>
 
@@ -267,7 +336,9 @@ export default function Product() {
                     variant.id;
 
                   const variantSoldOut =
-                    isVariantSoldOut(variant);
+                    isVariantSoldOut(
+                      variant
+                    );
 
                   return (
                     <button
@@ -282,7 +353,9 @@ export default function Product() {
                           ? "variant-button--sold-out"
                           : "",
                       ]
-                        .filter(Boolean)
+                        .filter(
+                          Boolean
+                        )
                         .join(" ")}
                       onClick={() =>
                         handleVariantChange(
@@ -290,7 +363,9 @@ export default function Product() {
                         )
                       }
                       aria-label={`Choisir la couleur ${variant.color}`}
-                      aria-pressed={isSelected}
+                      aria-pressed={
+                        isSelected
+                      }
                     >
                       <span
                         className="variant-color-swatch"
@@ -302,7 +377,9 @@ export default function Product() {
                       />
 
                       <span className="variant-button__label">
-                        {variant.color}
+                        {
+                          variant.color
+                        }
                       </span>
 
                       {variantSoldOut ? (
@@ -329,7 +406,8 @@ export default function Product() {
           <div className="selection-block">
             <div className="selection-heading">
               <span>
-                Sélectionner une taille
+                Sélectionner une
+                taille
               </span>
 
               <button type="button">
@@ -348,26 +426,36 @@ export default function Product() {
 
                   const available =
                     !isSoldOut &&
-                    stockQuantity > 0;
+                    stockQuantity >
+                      0;
 
                   return (
                     <button
                       type="button"
                       key={size}
-                      disabled={!available}
+                      disabled={
+                        !available
+                      }
                       className={[
-                        selectedSize === size
+                        selectedSize ===
+                        size
                           ? "active"
                           : "",
                         !available
                           ? "unavailable"
                           : "",
                       ]
-                        .filter(Boolean)
+                        .filter(
+                          Boolean
+                        )
                         .join(" ")}
                       onClick={() => {
-                        if (available) {
-                          setSelectedSize(size);
+                        if (
+                          available
+                        ) {
+                          setSelectedSize(
+                            size
+                          );
                         }
                       }}
                       aria-label={
@@ -395,7 +483,9 @@ export default function Product() {
           <button
             className="primary-button primary-button--full"
             type="button"
-            onClick={handleAddToCart}
+            onClick={
+              handleAddToCart
+            }
             disabled={
               isSoldOut ||
               !selectedSizeAvailable
@@ -412,9 +502,15 @@ export default function Product() {
 
           <div className="product-accordions">
             <details open>
-              <summary>Description</summary>
+              <summary>
+                Description
+              </summary>
 
-              <p>{product.longDescription}</p>
+              <p>
+                {
+                  product.longDescription
+                }
+              </p>
             </details>
 
             <details>
@@ -425,7 +521,11 @@ export default function Product() {
               <ul>
                 {product.details.map(
                   (detail) => (
-                    <li key={detail}>
+                    <li
+                      key={
+                        detail
+                      }
+                    >
                       {detail}
                     </li>
                   )
@@ -450,7 +550,9 @@ export default function Product() {
             </details>
 
             <details>
-              <summary>Composition</summary>
+              <summary>
+                Composition
+              </summary>
 
               <ul>
                 {product.composition.map(
@@ -465,7 +567,8 @@ export default function Product() {
 
             <details>
               <summary>
-                Conseils d’entretien
+                Conseils
+                d’entretien
               </summary>
 
               <ul>
@@ -481,26 +584,31 @@ export default function Product() {
 
             <details>
               <summary>
-                Livraison internationale
+                Livraison
+                internationale
               </summary>
 
               <p>
-                Les frais et délais de
-                livraison sont confirmés sur
-                WhatsApp selon le pays et la
-                ville de destination.
+                Les frais et délais
+                de livraison sont
+                confirmés sur
+                WhatsApp selon le
+                pays et la ville de
+                destination.
               </p>
             </details>
           </div>
         </aside>
       </section>
 
-      {relatedProducts.length > 0 && (
+      {relatedProducts.length >
+        0 && (
         <section className="related-section section-light">
           <div className="section-heading">
             <div>
               <p className="eyebrow">
-                Continue the chapter
+                Continue the
+                chapter
               </p>
 
               <h2>

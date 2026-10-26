@@ -3,16 +3,20 @@ import { Link } from "react-router-dom";
 import { formatPrice } from "../utils/formatPrice";
 
 function hasStock(variant) {
-  return variant.sizes.some((size) => {
-    const value =
-      variant.stock?.[size];
+  return variant.sizes.some(
+    (size) => {
+      const value =
+        variant.stock?.[size];
 
-    if (typeof value === "boolean") {
-      return value;
+      if (
+        typeof value === "boolean"
+      ) {
+        return value;
+      }
+
+      return Number(value) > 0;
     }
-
-    return Number(value) > 0;
-  });
+  );
 }
 
 export default function ProductCard({
@@ -61,7 +65,9 @@ export default function ProductCard({
         <div className="product-card__image-stack">
           <img
             className="product-card__image product-card__image--main"
-            src={selectedVariant.image}
+            src={
+              selectedVariant.image
+            }
             alt={`${product.name} - ${selectedVariant.color}`}
             loading="lazy"
           />
@@ -77,17 +83,20 @@ export default function ProductCard({
           )}
         </div>
 
-        <span
-          className={`product-card__badge ${
-            !productAvailable
-              ? "product-card__badge--sold"
-              : ""
-          }`}
-        >
-          {productAvailable
-            ? product.badge || "New"
-            : "Sold out"}
-        </span>
+        {(!productAvailable ||
+          product.badge) && (
+          <span
+            className={`product-card__badge ${
+              !productAvailable
+                ? "product-card__badge--sold"
+                : ""
+            }`}
+          >
+            {!productAvailable
+              ? "Sold out"
+              : product.badge}
+          </span>
+        )}
 
         <span className="product-card__quick">
           Voir le produit
@@ -98,7 +107,9 @@ export default function ProductCard({
         <div className="product-card__top">
           <div>
             <p className="product-card__collection">
-              {product.collection}
+              {
+                product.collection
+              }
             </p>
 
             <h3>
@@ -113,7 +124,9 @@ export default function ProductCard({
           <strong>
             {formatPrice(
               product.price,
-              product.currency
+              product.currency,
+              product.euroAdjustment ||
+                0
             )}
           </strong>
         </div>
@@ -138,7 +151,9 @@ export default function ProductCard({
                         ? "sold-out"
                         : "",
                     ]
-                      .filter(Boolean)
+                      .filter(
+                        Boolean
+                      )
                       .join(" ")}
                     onClick={() =>
                       setSelectedVariantId(
@@ -155,7 +170,9 @@ export default function ProductCard({
                     />
 
                     <span className="sr-only">
-                      {variant.color}
+                      {
+                        variant.color
+                      }
                     </span>
                   </button>
                 );
@@ -163,7 +180,9 @@ export default function ProductCard({
             )}
 
             <span className="product-card-color-name">
-              {selectedVariant.color}
+              {
+                selectedVariant.color
+              }
 
               {!selectedVariantAvailable &&
                 " — Sold out"}
@@ -178,6 +197,7 @@ export default function ProductCard({
           {productAvailable
             ? "Choisir taille & couleur"
             : "Voir le produit"}
+
           <span>→</span>
         </Link>
       </div>

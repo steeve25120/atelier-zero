@@ -1,4 +1,8 @@
 export const products = [
+  // =========================================================
+  // DROP 001 — PROJECT GENESIS
+  // =========================================================
+
   {
     id: 1,
 
@@ -16,9 +20,9 @@ export const products = [
 
     collection: "Project Genesis",
 
-    badge: "New release",
+    badge: null,
 
-    featured: true,
+    featured: false,
 
     soldOut: true,
 
@@ -131,9 +135,9 @@ export const products = [
 
     collection: "Project Genesis",
 
-    badge: "New release",
+    badge: null,
 
-    featured: true,
+    featured: false,
 
     soldOut: false,
 
@@ -248,9 +252,9 @@ export const products = [
 
     collection: "Project Genesis",
 
-    badge: "New release",
+    badge: null,
 
-    featured: true,
+    featured: false,
 
     soldOut: false,
 
@@ -365,9 +369,9 @@ export const products = [
 
     collection: "Project Genesis",
 
-    badge: "New release",
+    badge: null,
 
-    featured: true,
+    featured: false,
 
     soldOut: false,
 
@@ -481,9 +485,9 @@ export const products = [
 
     collection: "Project Genesis",
 
-    badge: "New release",
+    badge: null,
 
-    featured: true,
+    featured: false,
 
     soldOut: false,
 
@@ -585,9 +589,294 @@ export const products = [
       },
     ],
   },
+
+  // =========================================================
+  // DROP 002 — ZERO II ASCENSION
+  // =========================================================
+
+  {
+    id: 6,
+
+    slug: "fly-from-benin-studded-tank",
+
+    name: "FLY FROM BENIN Studded Tank",
+
+    category: "Tank tops",
+
+    price: 25000,
+
+    currency: "FCFA",
+
+    euroAdjustment: 10,
+
+    chapter: "Chapter 1",
+
+    collection: "ZERO II ASCENSION",
+
+    badge: "New release",
+
+    featured: true,
+
+    soldOut: false,
+
+    description:
+      "Le FLY FROM BENIN Studded Tank affirme l’identité Atelier Zéro à travers une silhouette sleeveless oversized, une finition noire délavée et des détails métalliques autour du col et des emmanchures. Le dos est marqué par le statement “I’M FLY CAUSE I’M FROM BENIN”.",
+
+    longDescription:
+      "Pensé comme une pièce forte de ZERO II ASCENSION, le FLY FROM BENIN Studded Tank associe une esthétique brute à des détails métalliques inspirés du streetwear expérimental. Son traitement noir délavé renforce son aspect vintage, tandis que les clous métalliques placés autour du col et des emmanchures structurent la silhouette. À l’avant, la signature Atelier Zéro est accompagnée du message “From Zéro, You Chose”. Au dos, le statement “I’M FLY CAUSE I’M FROM BENIN” affirme l’origine et l’identité de la pièce.",
+
+    details: [
+      "Top sleeveless streetwear",
+      "Finition noire délavée",
+      "Clous métalliques autour du col et des emmanchures",
+      "Impression Atelier Zéro sur le devant",
+      "Inscription From Zéro, You Chose",
+      "Grand visuel I’M FLY CAUSE I’M FROM BENIN au dos",
+      "Coupe ample et structurée",
+      "Modèle unisexe",
+    ],
+
+    composition: [
+      "Composition textile exacte à confirmer",
+      "Finition washed / effet délavé",
+    ],
+
+    care: [
+      "Lavage en machine à 30 °C maximum",
+      "Laver le vêtement à l’envers",
+      "Laver avec des couleurs similaires",
+      "Ne pas utiliser d’eau de Javel",
+      "Ne pas sécher au sèche-linge",
+      "Repasser à basse température et à l’envers",
+      "Ne pas repasser directement sur les impressions",
+      "Éviter les frottements excessifs sur les détails métalliques",
+    ],
+
+    fit: [
+      "Coupe sleeveless ample et unisexe",
+      "Prendre votre taille habituelle pour un porté oversized",
+      "Prendre une taille en dessous pour un rendu plus ajusté",
+    ],
+
+    variants: [
+      {
+        id: "washed-black",
+
+        color: "Washed Black",
+
+        colorValue: "#252525",
+
+        image:
+          "/assets/products/fly-from-benin-studded-tank-black/front.png",
+
+        gallery: [
+          "/assets/products/fly-from-benin-studded-tank-black/front.png",
+          "/assets/products/fly-from-benin-studded-tank-black/side.png",
+          "/assets/products/fly-from-benin-studded-tank-black/back.png",
+        ],
+
+        sizes: ["M", "L", "XL", "XXL"],
+
+        stock: {
+          M: 4,
+          L: 4,
+          XL: 1,
+          XXL: 1,
+        },
+      },
+    ],
+  },
+
+  {
+    id: 7,
+
+    slug: "ascension-blood-camo-short",
+
+    name: "ASCENSION BLOOD CAMO SHORT",
+
+    category: "Shorts",
+
+    price: 17000,
+
+    currency: "FCFA",
+
+    euroAdjustment: 10,
+
+    chapter: "Chapter 1",
+
+    collection: "ZERO II ASCENSION",
+
+    badge: "New release",
+
+    featured: true,
+
+    soldOut: false,
+
+    description:
+      "Le ASCENSION BLOOD CAMO SHORT mêle camouflage gris, détails utilitaires et projections rouges pour une pièce plus agressive et expérimentale du Drop 002 — ZERO II ASCENSION.",
+
+    longDescription:
+      "Conçu pour ZERO II ASCENSION, le ASCENSION BLOOD CAMO SHORT associe une construction cargo à un camouflage gris et blanc contrasté par des projections rouges. Ses poches latérales renforcent son inspiration utilitaire, tandis que le patch Atelier Zéro apporte la signature de la marque. Une pièce pensée pour compléter les silhouettes du deuxième drop avec une identité plus brute et plus graphique.",
+
+    details: [
+      "Short cargo streetwear",
+      "Motif camouflage gris et blanc",
+      "Projections graphiques rouges",
+      "Poches cargo latérales",
+      "Poches arrière",
+      "Passants de ceinture",
+      "Patch Atelier Zéro",
+      "Coupe ample et structurée",
+      "Modèle unisexe",
+    ],
+
+    composition: [
+      "Coton de bonne qualité",
+      "Matière résistante et confortable",
+    ],
+
+    care: [
+      "Lavage en machine à 30 °C maximum",
+      "Laver le vêtement à l’envers",
+      "Laver avec des couleurs similaires",
+      "Ne pas utiliser d’eau de Javel",
+      "Ne pas sécher au sèche-linge",
+      "Repasser à basse température et à l’envers",
+      "Ne pas repasser directement sur les éléments graphiques",
+    ],
+
+    fit: [
+      "Coupe cargo ample",
+      "Prendre votre taille habituelle pour un porté classique",
+      "Prendre une taille au-dessus pour un effet plus loose",
+    ],
+
+    variants: [
+      {
+        id: "grey-camo-red",
+
+        color: "Grey Camo / Red",
+
+        colorValue: "#c8c5be",
+
+        image:
+          "/assets/products/ascension-blood-camo-short/front.png",
+
+        gallery: [
+          "/assets/products/ascension-blood-camo-short/front.png",
+          "/assets/products/ascension-blood-camo-short/side.png",
+          "/assets/products/ascension-blood-camo-short/back.png",
+        ],
+
+        sizes: ["M", "L", "XL"],
+
+        stock: {
+          M: 3,
+          L: 6,
+          XL: 2,
+        },
+      },
+    ],
+  },
+
+  {
+    id: 8,
+
+    slug: "zero-is-not-cheap-tee",
+
+    name: "ZERO IS NOT CHEAP Tee",
+
+    category: "T-shirts",
+
+    price: 17000,
+
+    currency: "FCFA",
+
+    euroAdjustment: 10,
+
+    chapter: "Chapter 1",
+
+    collection: "ZERO II ASCENSION",
+
+    badge: "New release",
+
+    featured: true,
+
+    soldOut: false,
+
+    description:
+      "Le ZERO IS NOT CHEAP Tee affirme la vision Atelier Zéro avec une coupe oversized, une finition noire délavée et un statement jaune oversize sur le devant. Une pièce directe et assumée issue du Drop 002 — ZERO II ASCENSION.",
+
+    longDescription:
+      "Conçu pour ZERO II ASCENSION, le ZERO IS NOT CHEAP Tee associe une silhouette streetwear oversized à une esthétique brute et minimaliste. Sa finition noire délavée contraste avec le visuel jaune “ZERO IS NOT CHEAP.” placé sur le devant, tandis que la signature Atelier Zéro au dos apporte une finition plus discrète. Confectionné dans un coton de bonne qualité pour offrir confort, tenue et durabilité.",
+
+    details: [
+      "T-shirt streetwear oversized",
+      "Finition noire délavée",
+      "Grand visuel ZERO IS NOT CHEAP. jaune sur le devant",
+      "Signature ATELIER ZÉRO au dos",
+      "Manches courtes",
+      "Col rond",
+      "Coupe unisexe",
+      "Silhouette ample et structurée",
+    ],
+
+    composition: [
+      "Coton de bonne qualité",
+      "Matière douce et confortable",
+      "Finition washed / effet délavé",
+    ],
+
+    care: [
+      "Lavage en machine à 30 °C maximum",
+      "Laver le vêtement à l’envers",
+      "Laver avec des couleurs similaires",
+      "Ne pas utiliser d’eau de Javel",
+      "Ne pas sécher au sèche-linge",
+      "Repasser à basse température et à l’envers",
+      "Ne pas repasser directement sur les impressions",
+    ],
+
+    fit: [
+      "Coupe oversized unisexe",
+      "Prendre votre taille habituelle pour conserver le porté oversized",
+      "Prendre une taille en dessous pour un rendu plus ajusté",
+    ],
+
+    variants: [
+      {
+        id: "washed-black-yellow",
+
+        color: "Washed Black / Yellow",
+
+        colorValue: "#202020",
+
+        image:
+          "/assets/products/zero-is-not-cheap-tee-black/front.png",
+
+        gallery: [
+          "/assets/products/zero-is-not-cheap-tee-black/front.png",
+          "/assets/products/zero-is-not-cheap-tee-black/side.png",
+          "/assets/products/zero-is-not-cheap-tee-black/back.png",
+        ],
+
+        sizes: ["M", "L", "XXL"],
+
+        stock: {
+          M: 8,
+          L: 5,
+          XXL: 2,
+        },
+      },
+    ],
+  },
 ].sort((a, b) => b.id - a.id);
 
 export const categories = [
   "All",
-  ...new Set(products.map((product) => product.category)),
+  ...new Set(
+    products.map(
+      (product) => product.category
+    )
+  ),
 ];
