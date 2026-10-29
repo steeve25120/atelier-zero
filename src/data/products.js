@@ -24,7 +24,7 @@ export const products = [
 
     featured: false,
 
-    soldOut: true,
+    soldOut: false,
 
     description:
       "Le T-shirt Made From Nothing incarne le point de départ de la Mentalité Zéro. Une pièce streetwear à l’esthétique minimaliste sur le devant, marquée par le symbole Atelier Zéro sur la poitrine et une composition graphique forte au dos.",
@@ -84,8 +84,8 @@ export const products = [
         sizes: ["M", "L", "XL"],
 
         stock: {
-          M: 0,
-          L: 0,
+          M: 3,
+          L: 2,
           XL: 0,
         },
       },
@@ -139,7 +139,7 @@ export const products = [
 
     featured: false,
 
-    soldOut: false,
+    soldOut: true,
 
     description:
       "GENOTYPE 0 incarne l’identité brute d’Atelier Zéro. Confectionné en coton premium, il associe une coupe structurée à une esthétique graphique affirmée, pensée pour celles et ceux qui construisent leur propre trajectoire.",
@@ -200,8 +200,8 @@ export const products = [
         sizes: ["M", "L", "XL"],
 
         stock: {
-          M: 2,
-          L: 2,
+          M: 0,
+          L: 0,
           XL: 0,
         },
       },
@@ -228,7 +228,7 @@ export const products = [
 
         stock: {
           M: 0,
-          L: 1,
+          L: 0,
           XL: 0,
         },
       },
@@ -554,7 +554,7 @@ export const products = [
           S: 0,
           M: 1,
           L: 0,
-          XL: 3,
+          XL: 1,
           XXL: 1,
         },
       },
@@ -581,10 +581,10 @@ export const products = [
 
         stock: {
           S: 0,
-          M: 2,
+          M: 1,
           L: 0,
           XL: 1,
-          XXL: 2,
+          XXL: 0,
         },
       },
     ],
