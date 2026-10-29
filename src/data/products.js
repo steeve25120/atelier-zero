@@ -256,7 +256,7 @@ export const products = [
 
     featured: false,
 
-    soldOut: false,
+    soldOut: true,
 
     description:
       "Le Zero Fitted Shirt revisite l’essentiel Atelier Zéro avec une coupe ajustée et une identité minimaliste. Confectionné en coton doux, il est marqué par une broderie Atelier Zéro sur le devant.",
@@ -316,9 +316,9 @@ export const products = [
         sizes: ["S", "M", "L", "XL"],
 
         stock: {
-          S: 2,
+          S: 0,
           M: 0,
-          L: 1,
+          L: 0,
           XL: 0,
         },
       },
@@ -344,9 +344,9 @@ export const products = [
 
         stock: {
           S: 0,
-          M: 1,
+          M: 0,
           L: 0,
-          XL: 1,
+          XL: 0,
         },
       },
     ],
